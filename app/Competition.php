@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Competition extends Model
 {
     protected $fillable[
-    					'country',
+    	'name', 'info',
     ];
 }
