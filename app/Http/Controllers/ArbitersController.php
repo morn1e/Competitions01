@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -6,9 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 
-
-
-class CompetitionsController extends Controller
+class ArbitersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +13,8 @@ class CompetitionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
-
     {
-        
+       
     }
 
     /**
