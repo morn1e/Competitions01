@@ -3,15 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Competition;
-use App\User;
-use App\Profile;
-use App\Competitions_arbiter;
 use App\Competitions_participant;
 
-
-
-class CompetitionsController extends Controller
+class CompetitionsParticipantsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +13,8 @@ class CompetitionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
-
     {
-        $competitions = Competition::all();
-        return view('competitions.index', compact('competitions'));
+        //
     }
 
     /**
@@ -33,8 +24,7 @@ class CompetitionsController extends Controller
      */
     public function create()
     {
-       
-
+        //
     }
 
     /**
@@ -45,15 +35,12 @@ class CompetitionsController extends Controller
      */
     public function store(Request $request)
     {
-        $arbiter = new Competitions_arbiter;
+        $participant = new Competitions_participant;
 
-        $arbiter->arbiter_id = $request->arbiter_id;
-        $arbiter->competition_id = $request->competition_id;
+        $participant->participant_id = $request->participant_id;
+        $participant->competition_id = $request->competition_id;
 
-        $arbiter->save();
-
-        
-
+        $participant->save();
         return redirect()->back();
     }
 
@@ -65,14 +52,7 @@ class CompetitionsController extends Controller
      */
     public function show($id)
     {
-        $competition_id = Competition::find($id);
-
-        $role_arbiter = 2;
-        $role_participant = 3;
-
-        $arbiters = User::with('profile')->where('role_id', $role_arbiter)->get();
-        $participants = User::with('profile')->where('role_id', $role_participant)->get();
-        return view('competitions.show', compact('arbiters', 'competition_id'), compact('participants'));
+        //
     }
 
     /**

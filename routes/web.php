@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 
 Route::resource('competitions', 'CompetitionsController');
+Route::resource('competitions_participants', 'CompetitionsParticipantsController');
+Route::resource('arbiters', 'ArbitersController');
+
+
