@@ -33,7 +33,4 @@ class User extends Authenticatable
     public function role(){
         return $this->hasOne('App\Role');
     }
-    public function competition(){
-        return $this->hasMany('App\Competitions_participant');
-    }
 }
