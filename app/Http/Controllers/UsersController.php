@@ -49,7 +49,27 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $user = User::create([
+                'username'          => $request['username'],                
+                'email'         => $request['email'],
+                'password'      => bcrypt($request['password']), 
+                'role_id'           =>  $request['role_id'],               
+            ]);
+
+       $user_id = $user->id;
+        
+        $user_profile = Profile::create([
+                // 'photo_path'    =>  $filename,
+                'country_id'           =>  $request['country_id'],
+                'name'           =>  $request['name'],
+                'user_id'       =>  $user->id,
+                                 
+                
+            ]);
+  
+        
+
+        return  redirect()->back();
     }
 
     /**

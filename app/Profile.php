@@ -8,7 +8,8 @@ class Profile extends Model
 {
     protected $fillable = [
     	'name',
-    	'country_id'
+    	'country_id',
+        'user_id'
     ];
     public function user()
     {

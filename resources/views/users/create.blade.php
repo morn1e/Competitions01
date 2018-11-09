@@ -12,7 +12,11 @@
 
  
 
-{!! Form::open () !!}
+{!! Form::open ( ['route'=> 'users.store', 'files'=>'true']) !!}
+{{ method_field('POST') }}
+	<p>Username:
+		{!! Form::text('username') !!}
+	</p>
 	<p>Name:
 		{!! Form::text('name', 'Name here..') !!}
 	</p>
