@@ -1,32 +1,4 @@
 <h1>Evaluations</h1>
-
-@foreach($competitions as $competition)
-<h2>{{$competition->name}}</h2>
-@foreach($evaluations as $participant)
-@if($participant->competition->id == $competition->id)
-
-	<ul>
-		<li>
-			<form action="{{route('evaluations.show', $participant->participant_id )}}">
-				<label>{{$participant->participant->profile->name}} {{$participant->participant_id}}</label>
-				<input type="hidden" name="competition_id" value="{{$competition->id}}">
-				<input type="submit" name="submit" value="go">
-				
-			</form>
-
-
-			<a href=""></a>
-			{{-- {{ method_field('PATCH') }} --}}
-			
-
-		</li>
-	</ul>
-@endif
-@endforeach
-@endforeach
-
-
-<h1>Evaluations</h1>
 <!-- {{-- {{dd($evaluations)}}
  --}}
 {{--  <pre>

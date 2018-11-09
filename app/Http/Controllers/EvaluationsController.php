@@ -27,7 +27,7 @@ class EvaluationsController extends Controller
         // $evaluations = Evaluation::all();
 
         $evaluations = Evaluation::with('participant',  'arbiter', 'competition')->whereNull('date_anulated')->get();
-         $participants = User::with('profile')->get();
+        // $participants = User::with('profile')->get();
          $competitions = Competition::all();
          $country = Profile::with('country')->get();
 
@@ -61,16 +61,22 @@ class EvaluationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id )
     {
-        //
+      //var_dump($request->competition_id);
+       //$evaluations = Evaluation::with('participant',  'arbiter', 'competition')->where('participant_id', )->get();
+
+     $evaluations = Evaluation::with('participant',  'arbiter', 'competition')->where('participant_id', $id )->where('competition_id', $request->competition_id)->get();
+
+      return view('evaluations.show', compact('evaluations'));
+      //where('competition_id', $request->competition_id )
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responses
      */
     public function edit($id)
     {

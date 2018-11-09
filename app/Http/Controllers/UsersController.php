@@ -112,8 +112,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user_id)
     {
-        //
+        $profile = Profile::where('user_id', '=', $user_id);
+        $profile->delete();
+        $user = User::find($user_id);        
+        $user->delete();
+        return  redirect()->back();
     }
 }
