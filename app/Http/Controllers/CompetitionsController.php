@@ -1,10 +1,11 @@
-
 <?php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Competition;
+use App\User;
+use App\Profile;
 
 
 
@@ -19,7 +20,12 @@ class CompetitionsController extends Controller
 
 
     {
-        
+        $role = 2;
+        // $profiles = Profile::with('user')->get();
+       $arbiters = User::where('role_id', $role);
+        return view('competitions.index',  compact('arbiters'));
+        // $competitions = Competition::all();
+        // return view('competitions.index', compact('competitions'));
     }
 
     /**

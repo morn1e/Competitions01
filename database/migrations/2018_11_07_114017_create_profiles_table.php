@@ -15,9 +15,6 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->srting('name');
-            $table->unsignedInteger('country_id');
-            $table->foreign('country_id')->references('id')->on('countries');
             $table->timestamps();
         });
     }
