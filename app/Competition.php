@@ -12,4 +12,8 @@ class Competition extends Model
     public function evaluation(){
         return $this->hasMany('App\Evaluation');
     }
+    public function Competition(){
+        return $this->hasMany('App\Competitions_participant');
+    }
+    
 }
