@@ -72,7 +72,7 @@ class ArbitersController extends Controller
          $id = $competition_id->id;
 
         $role_participant = 3;
-        $competitions_participant = Competitions_participant::with('user')->where('competition_id', $id)->get();
+        $competitions_participant = Competitions_participant::with('participant')->where('competition_id', $id)->get();
         $participants = User::with('profile')->get();
         $country = Profile::with('country')->get();
 

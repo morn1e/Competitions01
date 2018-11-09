@@ -8,6 +8,8 @@ use App\User;
 use App\Profile;
 use App\Country;
 use App\Competition;
+use App\Competitions_participant;
+
 
 
 class ResultsController extends Controller
@@ -19,7 +21,8 @@ class ResultsController extends Controller
      */
     public function index()
     {
-        //
+        $competitions = Competition::all();
+         return view('results.index' , compact('competitions'));
     }
 
     /**
@@ -51,7 +54,10 @@ class ResultsController extends Controller
      */
     public function show($id)
     {
-        //
+        //$results = Competitions_participant::with('participant',  'competition')->whereNotNull('result')->get();
+        $results = Competitions_participant::with('participant',  'competition')->where('competition_id', $id)->whereNotNull('result')->orderBy('result', 'DESC')->get();
+        $country = Profile::with('country')->get();
+        return view('results.show', compact('results', 'participant', 'competition', 'country'));
     }
 
     /**
@@ -74,10 +80,11 @@ class ResultsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $evaluations = Evaluation::with('participant',  'arbiter', 'competition')->whereNull('date_anulated')->get();
+        $result = Competitions_participant::where('participant_id', $id )->where('competition_id', $request->competition_id)->first();
+        $result->result = $request->result;
+        $result->save();
 
-        return view('results.update', compact('evaluations'));
-        //return 'update results'; 
+        return view('results.update');
     }
 
     /**

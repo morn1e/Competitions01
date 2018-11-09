@@ -52,3 +52,5 @@
 		{!! Form::submit('Save') !!}
 
 {!! Form::close() !!}
+
+<a href="{{route('users.index')}}">Back</a>

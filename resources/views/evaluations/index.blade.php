@@ -96,16 +96,3 @@
 		</td>
 	</tr>
 @endforeach
-
-
-
-<!-- </table>
-<p>
-	<form action="" method="POST">
-		{{ csrf_field() }}
-		{{ method_field('PATCH') }}
-		<input type="submit" name="submit" value="Publish">
-	</form>
-</p>
-
-<a href="{{route('results.create')}}">Results</a> -->

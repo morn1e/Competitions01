@@ -3,9 +3,9 @@
 
 
 {{-- {{dd($competitions_participant)}}  --}}
-{{-- {{dd($competitions_participant->user->profile)}} --}}
+{{-- {{dd($competitions_participant->participant->profile)}} --}}
 {{-- @foreach( $competitions_participant as $participant )
-{{$participant->user->profile->country->country}}
+{{$participant->participant->profile->country->country}}
 @endforeach --}}
 <p>
 @if(Session::has('message'))
@@ -42,11 +42,11 @@
 	<input type="hidden" name="competition_id" value="{{$competition_id->id}}">
 		<tr>
 			<td>
-				{{$participant->user->profile->name}}
+				{{$participant->participant->profile->name}}
 				<input type="hidden" name="participant_id" value="{{$participant->participant_id}}">
 			</td>
 			<td>
-				{{$participant->user->profile->country->country}}
+				{{$participant->participant->profile->country->country}}
 			</td>
 			<td>
 				<input type="number" name="criterion_1">

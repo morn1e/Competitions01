@@ -39,7 +39,7 @@ class UsersController extends Controller
         $countries = Country::all();
         $roles = Role::all();
         return view('users.create', compact('countries', 'roles'));
-            }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -69,7 +69,7 @@ class UsersController extends Controller
   
         
 
-        return  redirect()->back();
+        return  redirect()->back()->with('message', 'One new user added!');
     }
 
     /**

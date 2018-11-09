@@ -9,6 +9,8 @@ use App\Profile;
 use App\Country;
 use App\Competition;
 use Carbon\Carbon;
+use App\Competitions_participant;
+
 
 
 
@@ -52,7 +54,10 @@ class EvaluationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        
+
+        
     }
 
     /**
@@ -66,7 +71,7 @@ class EvaluationsController extends Controller
       //var_dump($request->competition_id);
        //$evaluations = Evaluation::with('participant',  'arbiter', 'competition')->where('participant_id', )->get();
 
-     $evaluations = Evaluation::with('participant',  'arbiter', 'competition')->where('participant_id', $id )->where('competition_id', $request->competition_id)->get();
+     $evaluations = Evaluation::with('participant',  'arbiter', 'competition')->where('participant_id', $id )->where('competition_id', $request->competition_id)->whereNull('date_anulated')->get();
 
       return view('evaluations.show', compact('evaluations'));
       //where('competition_id', $request->competition_id )
@@ -92,7 +97,7 @@ class EvaluationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update($id)
-    {
+    { 
         
         $evaluation = Evaluation::find($id);
         $current = Carbon::now();

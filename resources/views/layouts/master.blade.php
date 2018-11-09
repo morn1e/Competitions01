@@ -22,6 +22,16 @@
 				Evaluations
 				</a>
 			</li>
+			<li>
+				<a href=" {{ route('results.index') }} ">
+				Results
+				</a>
+			</li>
+			<li>
+				<a href=" {{ route('users.index') }} ">
+				Users
+				</a>
+			</li>
 		</ul>
 	</nav>
 	<hr>
