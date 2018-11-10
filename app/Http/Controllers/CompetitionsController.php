@@ -8,6 +8,8 @@ use App\User;
 use App\Profile;
 use App\Competitions_arbiter;
 use App\Competitions_participant;
+use Carbon\Carbon;
+
 
 
 
@@ -73,7 +75,10 @@ class CompetitionsController extends Controller
 
         $arbiters = User::with('profile')->where('role_id', $role_arbiter)->get();
         $participants = User::with('profile')->where('role_id', $role_participant)->get();
-        return view('competitions.show', compact('arbiters', 'competition_id'), compact('participants'));
+        
+
+        $participants_chosen = Competitions_participant::with('participant', 'competition')->where('competition_id', $competition_id->id ) ->whereNull('date_withdrawn')->get();
+        return view('competitions.show', compact('arbiters', 'competition_id'), compact('participants', 'participants_chosen'));
     }
 
     /**
@@ -96,7 +101,13 @@ class CompetitionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $current = Carbon::now();
+        $result = Competitions_participant::find($id);
+        $result->result = 0;
+        $result->date_withdrawn = $current;
+        $result->save();
+
+        return redirect()->back();
     }
 
     /**

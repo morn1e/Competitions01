@@ -1,7 +1,4 @@
-{{-- //{{dd($results)}}
- --}}
-
- <h2>Ranking</h2>
+<h2>Ranking</h2>
 <?php $num = 1; ?>
 
 <table border="1">
@@ -16,9 +13,23 @@
 		<td>{{$num++}}</td>
 		<td>{{$result->participant->profile->name}}</td>
 		<td>{{$result->participant->profile->country->country}}</td>
-		<td>{{$result->result}}</td>
+		
+			@if($result->result == 0)
+			<td>
+				Withdrawn
+			</td>
+			@else 
+			<td>
+				{{$result->result}}
+			</td>
+			@endif
+
+			
+
+		
 		<td>
 			<form action="{{route('evaluations.show', $result->participant_id )}}">
+				
 				<input type="hidden" name="competition_id" value="{{$result->competition_id}}">
 				<input type="submit" name="submit" value="go">
 				
