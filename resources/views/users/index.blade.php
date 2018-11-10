@@ -1,3 +1,8 @@
+@extends('layouts.master')
+
+@section('title', 'competitions')
+
+@section('content')
 <h2>Participants</h2>
 <table border="1">
 	<tr>
@@ -38,3 +43,5 @@
 	@endforeach
 </table>
 <a href="{{route('users.create')}}">Create</a>
+
+@endsection

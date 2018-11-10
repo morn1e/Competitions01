@@ -8,7 +8,11 @@
 
 
 @foreach( $competitions as $competition )
-<p><a href=" {{ route('arbiters.show', $competition->id) }}">{{ $competition->name }}</a></p>
+<h3><a href=" {{ route('arbiters.show', $competition->id) }}">{{ $competition->name }}</a></h3>
+	<p>
+		{{ $competition->info }}
+	</p>
+
 @endforeach
 
 @endsection

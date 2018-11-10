@@ -1,3 +1,9 @@
+@extends('layouts.master')
+
+@section('title', 'competitions')
+
+@section('content')
+
 <h1>Create user</h1>
 
 
@@ -5,9 +11,9 @@
 	{{ Session::get('message') }}
 @endif
 
-	@foreach($errors->all() as $error)
-		{{ $error }}
-	@endforeach
+@foreach($errors->all() as $error)
+	{{ $error }}
+@endforeach
 	
 
  
@@ -53,4 +59,8 @@
 
 {!! Form::close() !!}
 
-<a href="{{route('users.index')}}">Back</a>
+<p>
+	<a href="{{route('users.index')}}">Back</a>
+</p>
+
+@endsection

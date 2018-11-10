@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-	<title>Competitions - @yield('title')</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-       <div id="app">
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -39,18 +53,6 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-                                <p>
-                                    {{ Auth::user()->profile->name }}
-                                </p>
-                                <p>
-                                   @if(Auth::user()->role_id ==1)
-                                    {{'Admin'}}
-                                    @elseif(Auth::user()->role_id ==2)
-                                    {{'Arbiter'}}
-                                    @elseif(Auth::user()->role_id ==3)
-                                    {{'Participant'}}
-                                    @endif
-                                </p>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -71,53 +73,8 @@
         </nav>
 
         <main class="py-4">
-           
+            @yield('content')
         </main>
     </div>
-	<nav>
-        <ul>
-            @if(Auth::user()->role_id == 1)
-        	<li>
-                <a href=" {{ route('users.index') }} ">
-                Users
-                </a>
-            </li>
-            <li>
-                <a href=" {{ route('competitions.index') }} ">
-                Add arbiters and participants
-                </a>
-            </li>
-            <li>
-                <a href=" {{ route('evaluations.index') }} ">
-                Evaluations
-                </a>
-            </li>
-            @endif
-            @if(Auth::user()->role_id ==2)
-            <li>
-                <a href=" {{ route('arbiters.index') }} ">
-                Evaluate participants
-                </a>
-            </li>
-            @endif
-            <li>
-                <a href=" {{ route('results.index') }} ">
-                Results
-                </a>
-            </li>
-        </ul>
-    </nav>
-	<hr>
-	@yield('content')
-
-	<hr>
-
-	<div>
-		footer
-	</div>
 </body>
 </html>
-
-
-
-

@@ -1,3 +1,9 @@
+@extends('layouts.master')
+
+@section('title', 'competitions')
+
+@section('content')
+
 <h2>Ranking</h2>
 <?php $num = 1; ?>
 
@@ -39,8 +45,12 @@
 	@endforeach
 	
 </table>
+<p>
+	<a href="{{route('results.index')}}">Back</a>
+</p>
 
-<a href="{{route('results.index')}}">Back</a>
+@endsection
+
 
 
 

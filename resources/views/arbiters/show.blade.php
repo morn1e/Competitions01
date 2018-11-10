@@ -1,12 +1,10 @@
+@extends('layouts.master')
+
+@section('title', 'competitions')
+
+@section('content')
+
 <h1>Participants</h1>
-
-
-
-{{-- {{dd($competitions_participant)}}  --}}
-{{-- {{dd($competitions_participant->participant->profile)}} --}}
-{{-- @foreach( $competitions_participant as $participant )
-{{$participant->participant->profile->country->country}}
-@endforeach --}}
 <p>
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -68,14 +66,4 @@
 
 <a href="{{ route('arbiters.index') }}">Back</a>
 
-
-{{-- <form action="" method="POST">
-	{{ csrf_field() }}
-	<input type="hidden" name="competition_id" value="{{$competition_id->id}}">
-		@foreach( $participants as $participant )	
-		<option value="{{ $participant->id }}">{{ $participant->profile->name }}</option>
-		@endforeach
-	</select>
-	<input type="submit", value="Add">
-	
-</form> --}}
+@endsection

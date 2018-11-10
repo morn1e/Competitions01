@@ -1,3 +1,8 @@
+@extends('layouts.master')
+
+@section('title', 'competitions')
+
+@section('content')
 <h1>Evaluations</h1>
 
 @foreach($competitions as $competition)
@@ -13,12 +18,6 @@
 				<input type="submit" name="submit" value="go">
 				
 			</form>
-
-
-			<a href=""></a>
-			{{-- {{ method_field('PATCH') }} --}}
-			
-
 		</li>
 	</ul>
 @endif
@@ -26,15 +25,13 @@
 @endforeach
 
 
-<h1>Evaluations</h1>
-<!-- {{-- {{dd($evaluations)}}
- --}}
-{{--  <pre>
-@foreach( $evaluations as $participant )
-{{$participant->id}}
-@endforeach
-</pre> --}} -->
 
+
+
+
+
+
+<h1>Evaluations</h1>
 <p>
 @if(Session::has('message'))
 	{{ Session::get('message') }}
@@ -87,6 +84,7 @@
 		<td>
 			{{$participant->criterion_3}}
 		</td>
+		@if(Auth::user()->role_id == 1)
 		<td>
 			<form action="{{route('evaluations.update', $participant->id)}}" method="POST">
 				{{ csrf_field() }}
@@ -94,5 +92,10 @@
 			<input type="submit" name="submit" value="Anulate">
 			</form>
 		</td>
+		@endif
 	</tr>
+
 @endforeach
+</table>
+
+@endsection

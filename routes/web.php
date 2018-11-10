@@ -11,17 +11,32 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('layouts.master');
+// });
+
+Route::get('/', 'HomePageController@index' )->name('home');
+
+Route::resource('results', 'ResultsController');
+
+
+//Route::get('results/update', ['middleware' => 'isAdmin', 'uses' => 'ResultsController@update']);
+
+
+Auth::routes();
+
+Route::group(['middleware' => 'auth'], function () {
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('competitions', 'CompetitionsController')->middleware('isAdmin');
+Route::resource('competitions_participants', 'CompetitionsParticipantsController');
+Route::resource('arbiters', 'ArbitersController')->middleware('isArbiter');
+Route::resource('evaluations', 'EvaluationsController');
+Route::resource('users', 'UsersController')->middleware('isAdmin');
+Route::get('/homepage', 'HomePageController@show' )->name('homepage');
+
 });
 
-
-Route::resource('competitions', 'CompetitionsController');
-Route::resource('competitions_participants', 'CompetitionsParticipantsController');
-Route::resource('arbiters', 'ArbitersController');
-Route::resource('evaluations', 'EvaluationsController');
-Route::resource('results', 'ResultsController');
-Route::resource('users', 'UsersController');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
-
+// ['except'=>['index', 'show'] ]

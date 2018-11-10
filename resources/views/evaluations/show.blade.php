@@ -1,4 +1,9 @@
-{{-- //{{dd($evaluations)}} --}}
+@extends('layouts.master')
+
+@section('title', 'competitions')
+
+@section('content')
+
 <?php 	$collection1 = collect([]);
 		$collection2 = collect([]);
 		$collection3 = collect([]); ?>
@@ -48,6 +53,7 @@
 		<td>
 			{{$participant->criterion_3}}
 		</td>
+		@if(Auth::user()->role_id == 1)
 		<td>
 			<form action="{{route('evaluations.update', $participant->id)}}" method="POST">
 				{{ csrf_field() }}
@@ -55,6 +61,7 @@
 			<input type="submit" name="submit" value="Anulate">
 			</form>
 		</td>
+		@endif
 	</tr>
 	<?php $collection1->prepend($participant->criterion_1);
 
@@ -78,18 +85,26 @@
 </form>
 
 </table>
+@if(Auth::user()->role_id == 1)
 <p>
-<form action="{{route('results.update', $participant->participant_id)}}" method="POST">
-		{{ csrf_field() }}
-		{{ method_field('PATCH') }}
+	<form action="{{route('results.update', $participant->participant_id)}}" method="POST">
+			{{ csrf_field() }}
+			{{ method_field('PATCH') }}
+			
+		<input type="hidden" name="result" value="{{$result}}">
+		<input type="hidden" name="participant_id" value="{{$participant->participant_id}}">
+		<input type="hidden" name="competition_id" value="{{$participant->competition->id}}">
+
 		
-	<input type="hidden" name="result" value="{{$result}}">
-	<input type="hidden" name="participant_id" value="{{$participant->participant_id}}">
-	<input type="hidden" name="competition_id" value="{{$participant->competition->id}}">
 
-	
-
-	<input type="submit" name="submit" value="Publish">
-</form>
+		<input type="submit" name="submit" value="Publish">
+	</form>
 
 </p>
+@endif
+
+<p>
+	<a href="{{route('evaluations.index')}}">Back</a>
+</p>
+
+@endsection

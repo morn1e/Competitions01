@@ -10,6 +10,7 @@ use App\Competitions_arbiter;
 use App\Competitions_participant;
 use App\Evaluation;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 class ArbitersController extends Controller
@@ -44,12 +45,12 @@ class ArbitersController extends Controller
     public function store(Request $request)
     {
 
-
+        $id = Auth::id();
         $evaluation = new Evaluation;
 
         $evaluation->competition_id = $request->competition_id;
         $evaluation->participant_id = $request->participant_id;
-        $evaluation->arbiter_id = 2; //да се промени, когато включим middleware
+        $evaluation->arbiter_id = $id; //да се промени, когато включим middleware
         $evaluation->criterion_1 = $request->criterion_1;
         $evaluation->criterion_2 = $request->criterion_2;
         $evaluation->criterion_3 = $request->criterion_3;
