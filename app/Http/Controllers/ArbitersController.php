@@ -44,13 +44,31 @@ class ArbitersController extends Controller
      */
     public function store(Request $request)
     {
+         $this->validate($request, [
+            'criterion_1' => 'required|numeric|min:0|max:10', 
+            'criterion_2' => 'required|numeric|min:0|max:10', 
+            'criterion_3' => 'required|numeric|min:0|max:10', 
+
+            
+        ], [
+            'criterion_1.numeric' => 'The input must be an integer!',
+            'criterion_2.numeric' => 'The input must be an integer!',
+            'criterion_3.numeric' => 'The input must be an integer!',
+            'criterion_1.min' => 'The input must be a number bethween 1 and 10!',
+            'criterion_1.max' => 'The input must be a number bethween 1 and 10!',
+            'criterion_2.min' => 'The input must be a number bethween 1 and 10!',
+            'criterion_2.max' => 'The input must be a number bethween 1 and 10!',
+            'criterion_3.min' => 'The input must be a number bethween 1 and 10!',
+            'criterion_3.max' => 'The input must be a number bethween 1 and 10!',
+
+        ]);
 
         $id = Auth::id();
         $evaluation = new Evaluation;
 
         $evaluation->competition_id = $request->competition_id;
         $evaluation->participant_id = $request->participant_id;
-        $evaluation->arbiter_id = $id; //да се промени, когато включим middleware
+        $evaluation->arbiter_id = $id; 
         $evaluation->criterion_1 = $request->criterion_1;
         $evaluation->criterion_2 = $request->criterion_2;
         $evaluation->criterion_3 = $request->criterion_3;

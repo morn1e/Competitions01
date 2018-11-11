@@ -46,10 +46,10 @@ table, tr, td {
 	position: fixed;
  	bottom: 0px;
  	display: block;
- 	height: 100px;
+ 	height: 20px;
  	width: 100%;
  	text-align: center;
- 	padding-top: 40px;
+ 	margin-top: 20px;
  	font-weight: bold;
 
 }

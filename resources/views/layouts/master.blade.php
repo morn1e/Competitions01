@@ -124,8 +124,12 @@
 	<hr>
 
 	<div id="wrapper" class="footer">
-		D. Qabrawi & P. Valcheva Co. 2018
-        All rights reserved &#169
+		<p>
+            D. Qabrawi & P. Valcheva Co. 2018
+        </p>
+        <p>
+            All rights reserved &#169      
+        </p>
 	</div>
 </body>
 </html>

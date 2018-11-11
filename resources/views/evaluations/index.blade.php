@@ -62,9 +62,11 @@
 		<td scope="col">
 			Criterion 3
 		</td>
+		@if(Auth::user()->role_id == 1)
 		<td scope="col">
 			Anulation
 		</td>
+		@endif
 	</tr>
 @foreach( $evaluations as $participant )
 

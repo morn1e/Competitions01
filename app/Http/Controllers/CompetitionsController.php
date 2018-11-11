@@ -107,7 +107,7 @@ class CompetitionsController extends Controller
         $result->date_withdrawn = $current;
         $result->save();
 
-        return redirect()->back();
+        //return redirect()->back(); 
     }
 
     /**

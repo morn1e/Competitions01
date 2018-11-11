@@ -5,15 +5,18 @@
 @section('content')
 
 <h1>Participants</h1>
-<p>
-@if(Session::has('message'))
-	{{ Session::get('message') }}
-@endif
-</p>
+
 
 @foreach($errors->all() as $error)
-	{{ $error }}
+{{ $error }}
 @endforeach
+
+@if(Session::has('message'))
+{{ Session::get('message') }}
+@endif
+
+
+
 
 <table class="table table-striped" border="1">
 	<tr>
@@ -65,6 +68,7 @@
 		</tr>
 	</form>
 	@endforeach
+
 </table>
 
 <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="{{ route('arbiters.index') }}">Back</a>

@@ -14,6 +14,8 @@
 		<td>Country</td>
 		<td>Result</td>
 		<td>Check</td>
+		{{-- <td>Withdrawn</td> --}}
+
 
 	</tr>
 	@foreach($results as $result)
@@ -38,6 +40,13 @@
 				<input class="btn btn-success btn-lg active" role="button" aria-pressed="true" type="submit" name="submit" value="Check results">
 			</form>
 		</td>
+		{{-- <td>
+			<form action="{{route('competitions.update', $result->participant_id )}}">
+				
+				<input type="hidden" name="competition_id" value="{{$result->competition_id}}">
+				<input class="btn btn-success btn-lg active" role="button" aria-pressed="true" type="submit" name="submit" value="Withdrawn">
+			</form>
+		</td> --}}
 	</tr>
 	@endforeach
 	

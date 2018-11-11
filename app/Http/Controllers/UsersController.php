@@ -49,6 +49,22 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+
+       //  $this->validate($request, [
+       //      'username' => 'required|min:5', 
+       //      'email' => 'required|email', 
+       //      'password' => 'required|min:3', 
+       //      'name' => 'required|min:3', 
+            
+
+            
+       //  ], [
+       //      'username.min' => 'The username must be at least 5 symbols!',
+       //      'email' => 'Please type a valid email!',
+       //      'password' => 'The password must least 3 symbols!',
+       //      'name.min' => 'The name must be at least 3 symbols!',
+       // ]);
+
        $user = User::create([
                 'username'          => $request['username'],                
                 'email'         => $request['email'],

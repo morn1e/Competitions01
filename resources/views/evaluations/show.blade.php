@@ -28,9 +28,11 @@
 		<td>
 			Criterion 3
 		</td>
+		@if(Auth::user()->role_id == 1)
 		<td>
 			Anulation
 		</td>
+		@endif
 	</tr>
 @foreach( $evaluations as $participant )
 

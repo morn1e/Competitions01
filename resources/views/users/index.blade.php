@@ -8,14 +8,14 @@
 	<tr>
 		<td>Name</td>
 		<td>Cuntry</td>
-		<td>Update</td>
+		
 		<td>Delete</td>
 	</tr>
 	@foreach ($participants as $participant)
 	<tr>
 		<td>{{$participant->profile->name}}</td>
 		<td>{{$participant->profile->country->country}}</td>
-		<td><a href="{{route('users.edit', $participant->id)}}">Update</a></td>
+		
 		<td>
 			{!!Form::open(['route'=> ['users.destroy', $participant->id], 'method'=>'delete']) !!}
 				{!! Form::submit('Delete', ['class' => 'btn btn-warning']) !!}
@@ -30,14 +30,14 @@
 	<tr>
 		<td>Name</td>
 		<td>Cuntry</td>
-		<td>Update</td>
+		
 		<td>Delete</td>
 	</tr>
 	@foreach ($arbiters as $arbiter)
 	<tr>
 		<td>{{$arbiter->profile->name}}</td>
 		<td>{{$arbiter->profile->country->country}}</td>
-		<td><a href="{{route('users.edit', $arbiter->id)}}">Update</a></td>
+		
 		<td>
 			{!!Form::open(['route'=> ['users.destroy', $arbiter->id], 'method'=>'delete']) !!}
 				{!! Form::submit('Delete', ['class' => 'btn btn-warning']) !!}

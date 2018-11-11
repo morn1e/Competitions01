@@ -1,0 +1,1 @@
+<p>Results were succesfully published</p>
