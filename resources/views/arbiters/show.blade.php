@@ -15,27 +15,30 @@
 	{{ $error }}
 @endforeach
 
-<table border="1">
+<table class="table table-striped" border="1">
 	<tr>
-		<td>
+		<td scope="col">
 			Participant name
 		</td>
-		<td>
+		<td scope="col">
 			Country
 		</td>
-		<td>
+		<td scope="col">
 			Criterion 1
 		</td>
-		<td>
+		<td scope="col">
 			Criterion 2
 		</td>
-		<td>
+		<td scope="col">
 			Criterion 3
+		</td>
+		<td>
+			Evaluation
 		</td>
 	</tr>
 	@foreach( $competitions_participant as $participant )
 
-	<form action="{{route('arbiters.store')}}" method="POST">
+	<form class="navbar-form navbar-left" role="search" action="{{route('arbiters.store')}}" method="POST">
 	{{ csrf_field() }}
 	<input type="hidden" name="competition_id" value="{{$competition_id->id}}">
 		<tr>
@@ -56,7 +59,7 @@
 				<input type="number" name="criterion_3">
 			</td>
 			<td>
-				<input type="submit", value="Еvaluatе ">
+				<input class="btn btn-success btn-lg active" role="button" aria-pressed="true" type="submit" value="Еvaluatе ">
 			</td>
 			
 		</tr>
@@ -64,6 +67,6 @@
 	@endforeach
 </table>
 
-<a href="{{ route('arbiters.index') }}">Back</a>
+<a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="{{ route('arbiters.index') }}">Back</a>
 
 @endsection

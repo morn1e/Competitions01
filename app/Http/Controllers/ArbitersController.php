@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Laravel\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Competition;
-use App\User;
-use App\Profile;
-use App\Competitions_arbiter;
-use App\Competitions_participant;
-use App\Evaluation;
+use Laravel\Competition;
+use Laravel\User;
+use Laravel\Profile;
+use Laravel\Competitions_arbiter;
+use Laravel\Competitions_participant;
+use Laravel\Evaluation;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 

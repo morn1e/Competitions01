@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace Laravel;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
+use Laravel\User;
 
 class Competitions_participant extends Model
 {
@@ -12,9 +12,9 @@ class Competitions_participant extends Model
     ];
 
     public function participant(){
-        return $this->belongsTo('App\User', 'participant_id');
+        return $this->belongsTo('Laravel\User', 'participant_id');
     }
     public function competition(){
-        return $this->belongsTo('App\Competition', 'competition_id');
+        return $this->belongsTo('Laravel\Competition', 'competition_id');
     }
 }

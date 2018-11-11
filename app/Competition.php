@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Laravel;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,10 +10,10 @@ class Competition extends Model
     	'name', 'info',
     ];
     public function evaluation(){
-        return $this->hasMany('App\Evaluation');
+        return $this->hasMany('Laravel\Evaluation');
     }
     public function Competition(){
-        return $this->hasMany('App\Competitions_participant');
+        return $this->hasMany('Laravel\Competitions_participant');
     }
     
 }

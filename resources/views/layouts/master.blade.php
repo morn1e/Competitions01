@@ -6,11 +6,16 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+    <div class = "video">
+        <video src="{{URL::asset('video_dance.mp4')}}" type="video/mp4" id = "video_dance" preload="auto" autoplay="true" loop="loop" muted="muted">
+            
+        </video>
+    </div>
        <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'World Dance Awards 2018') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -74,46 +79,53 @@
            
         </main>
     </div>
-	<nav>
-        <ul>
-            @if(Auth::user()->role_id == 1)
-        	<li>
-                <a href=" {{ route('users.index') }} ">
-                Users
-                </a>
-            </li>
-            <li>
-                <a href=" {{ route('competitions.index') }} ">
-                Add arbiters and participants
-                </a>
-            </li>
-            <li>
-                <a href=" {{ route('evaluations.index') }} ">
-                Evaluations
-                </a>
-            </li>
-            @endif
-            @if(Auth::user()->role_id ==2)
-            <li>
-                <a href=" {{ route('arbiters.index') }} ">
-                Evaluate participants
-                </a>
-            </li>
-            @endif
-            <li>
-                <a href=" {{ route('results.index') }} ">
-                Results
-                </a>
-            </li>
-        </ul>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                @if(Auth::user()->role_id == 1)
+                <li class="nav-item ">
+                    <a class="nav-link" href=" {{ route('users.index') }} ">
+                    Users
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=" {{ route('competitions.index') }} ">
+                    Add arbiters and participants
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href=" {{ route('evaluations.index') }} ">
+                    Evaluations
+                    </a>
+                </li>
+                @endif
+                @if(Auth::user()->role_id ==2)
+                <li class="nav-item ">
+                    <a class="nav-link" href=" {{ route('arbiters.index') }} ">
+                    Evaluate participants
+                    </a>
+                </li>
+                @endif
+                <li class="nav-item ">
+                    <a class="nav-link" href=" {{ route('results.index') }} ">
+                    Results
+                    </a>
+                </li>
+            </ul>
+        </div>
     </nav>
+                 
 	<hr>
+        <div id="wrapper">
 	@yield('content')
+        </div>
 
 	<hr>
 
-	<div>
-		footer
+	<div id="wrapper" class="footer">
+		D. Qabrawi & P. Valcheva Co. 2018
+        All rights reserved &#169
 	</div>
 </body>
 </html>

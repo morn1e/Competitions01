@@ -6,7 +6,7 @@
 
 <p>Results were succesfully published!</p>
 
-<a href="{{route('evaluations.index')}}">Back</a>
+<a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="{{route('evaluations.index')}}">Back</a>
 
 
 @endsection

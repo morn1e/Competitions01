@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Laravel\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Competitions_participant;
+use Laravel\Competitions_participant;
 
 class CompetitionsParticipantsController extends Controller
 {

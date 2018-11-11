@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Laravel;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class Country extends Model
     	'country'
     ];
     public function profile(){
-        return $this->hasMany('App\Profile');
+        return $this->hasMany('Laravel\Profile');
     }
 }

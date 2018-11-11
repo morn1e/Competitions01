@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Laravel\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Profile;
-use App\Country;
-use App\Role;
+use Laravel\User;
+use Laravel\Profile;
+use Laravel\Country;
+use Laravel\Role;
 
 class UsersController extends Controller
 {

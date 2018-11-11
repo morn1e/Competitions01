@@ -8,7 +8,7 @@
 		$collection2 = collect([]);
 		$collection3 = collect([]); ?>
 
-<table border="1">
+<table class="table table-striped" border="1">
 	<tr>
 		<td>
 			Competition
@@ -27,6 +27,9 @@
 		</td>
 		<td>
 			Criterion 3
+		</td>
+		<td>
+			Anulation
 		</td>
 	</tr>
 @foreach( $evaluations as $participant )
@@ -58,7 +61,7 @@
 			<form action="{{route('evaluations.update', $participant->id)}}" method="POST">
 				{{ csrf_field() }}
 				{{ method_field('PATCH') }}
-			<input type="submit" name="submit" value="Anulate">
+			<input class="btn btn-warning btn-lg active" role="button" aria-pressed="true" type="submit" name="submit" value="Anulate">
 			</form>
 		</td>
 		@endif
@@ -97,14 +100,14 @@
 
 		
 
-		<input type="submit" name="submit" value="Publish">
+		<input class="btn btn-success btn-lg active" role="button" aria-pressed="true" type="submit" name="submit" value="Publish">
 	</form>
 
 </p>
 @endif
 
 <p>
-	<a href="{{route('evaluations.index')}}">Back</a>
+	<a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="{{route('evaluations.index')}}">Back</a>
 </p>
 
 @endsection

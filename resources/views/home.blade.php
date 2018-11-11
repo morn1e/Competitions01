@@ -15,34 +15,36 @@
                         </div>
                     @endif
                     <h2>Welcome! check your results!</h2>
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href=" {{ route('users.index') }} ">
-                                Users
-                                </a>
-                            </li>
-                            <li>
-                                <a href=" {{ route('competitions.index') }} ">
-                                Add arbiters and participants
-                                </a>
-                            </li>
-                            <li>
-                                <a href=" {{ route('evaluations.index') }} ">
-                                Evaluations
-                                </a>
-                            </li>
-                            <li>
-                                <a href=" {{ route('arbiters.index') }} ">
-                                Evaluate participants
-                                </a>
-                            </li>
-                            <li>
-                                <a href=" {{ route('results.index') }} ">
-                                Results
-                                </a>
-                            </li>
-                        </ul>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href=" {{ route('users.index') }} ">
+                                    Users
+                                    </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href=" {{ route('competitions.index') }} ">
+                                    Add arbiters and participants
+                                    </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href=" {{ route('evaluations.index') }} ">
+                                    Evaluations
+                                    </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href=" {{ route('arbiters.index') }} ">
+                                    Evaluate participants
+                                    </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href=" {{ route('results.index') }} ">
+                                    Results
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </nav>
                 </div>
             </div>

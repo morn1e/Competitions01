@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Laravel\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Evaluation;
-use App\User;
-use App\Profile;
-use App\Country;
-use App\Competition;
-use App\Competitions_participant;
+use Laravel\Evaluation;
+use Laravel\User;
+use Laravel\Profile;
+use Laravel\Country;
+use Laravel\Competition;
+use Laravel\Competitions_participant;
 
 
 

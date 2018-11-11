@@ -60,7 +60,7 @@
 {!! Form::close() !!}
 
 <p>
-	<a href="{{route('users.index')}}">Back</a>
+	<a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="{{route('users.index')}}">Back</a>
 </p>
 
 @endsection

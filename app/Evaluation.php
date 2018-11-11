@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Laravel;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,14 +18,14 @@ class Evaluation extends Model
     protected $date = 'date_anulated';
 
     public function participant(){
-        return $this->belongsTo('App\User', 'participant_id');
+        return $this->belongsTo('Laravel\User', 'participant_id');
     }
     public function arbiter(){
-        return $this->belongsTo('App\User', 'arbiter_id');
+        return $this->belongsTo('Laravel\User', 'arbiter_id');
 
     }
     public function competition(){
-        return $this->belongsTo('App\Competition', 'competition_id');
+        return $this->belongsTo('Laravel\Competition', 'competition_id');
 
     }
 

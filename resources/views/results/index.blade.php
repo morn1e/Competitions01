@@ -3,16 +3,20 @@
 @section('title', 'competitions')
 
 @section('content')
-<h1>Results</h1>
+
+<h2>Results</h2>
 
 @foreach($competitions as $competition)
-	<h2>
-		<a href="{{route('results.show', $competition->id)}}">{{$competition->name}}</a>
-	</h2>
+	<div>
+		<h3>
+			<a href="{{route('results.show', $competition->id)}}">{{$competition->name}}</a>
+		</h3>
 
-	<p>
-		{{ $competition->info }}
-	</p>
+		<p>
+			{{ $competition->info }}
+		</p>
+	</div>
+	
 @endforeach
 
 @endsection

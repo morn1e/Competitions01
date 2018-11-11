@@ -4,10 +4,12 @@
 
 @section('content')
 <h2>Participants</h2>
-<table border="1">
+<table class="table table-striped" border="1">
 	<tr>
 		<td>Name</td>
 		<td>Cuntry</td>
+		<td>Update</td>
+		<td>Delete</td>
 	</tr>
 	@foreach ($participants as $participant)
 	<tr>
@@ -16,18 +18,20 @@
 		<td><a href="{{route('users.edit', $participant->id)}}">Update</a></td>
 		<td>
 			{!!Form::open(['route'=> ['users.destroy', $participant->id], 'method'=>'delete']) !!}
-				{!! Form::submit('Delete') !!}
+				{!! Form::submit('Delete', ['class' => 'btn btn-warning']) !!}
 			{!! Form::close()!!}
 		</td>
 	</tr>
 	@endforeach
 </table>
-<a href="{{route('users.create')}}">Create</a>
+<a class="btn btn-success btn-lg active" role="button" aria-pressed="true" href="{{route('users.create')}}">Create</a>
 <h2>Arbiters</h2>
-<table border="1">
+<table class="table table-striped" border="1">
 	<tr>
 		<td>Name</td>
 		<td>Cuntry</td>
+		<td>Update</td>
+		<td>Delete</td>
 	</tr>
 	@foreach ($arbiters as $arbiter)
 	<tr>
@@ -36,12 +40,12 @@
 		<td><a href="{{route('users.edit', $arbiter->id)}}">Update</a></td>
 		<td>
 			{!!Form::open(['route'=> ['users.destroy', $arbiter->id], 'method'=>'delete']) !!}
-				{!! Form::submit('Delete') !!}
+				{!! Form::submit('Delete', ['class' => 'btn btn-warning']) !!}
 			{!! Form::close()!!}
 		</td>
 	</tr>
 	@endforeach
 </table>
-<a href="{{route('users.create')}}">Create</a>
+<a class="btn btn-success btn-lg active" role="button" aria-pressed="true" href="{{route('users.create')}}">Create</a>
 
 @endsection

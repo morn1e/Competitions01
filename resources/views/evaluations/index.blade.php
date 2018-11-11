@@ -10,12 +10,12 @@
 @foreach($evaluations as $participant)
 @if($participant->competition->id == $competition->id)
 
-	<ul>
+	<ul class="breadcrumb">
 		<li>
 			<form action="{{route('evaluations.show', $participant->participant_id )}}">
 				<label>{{$participant->participant->profile->name}} {{$participant->participant_id}}</label>
 				<input type="hidden" name="competition_id" value="{{$competition->id}}">
-				<input type="submit" name="submit" value="go">
+				<input class="btn btn-success btn-lg active" role="button" aria-pressed="true" type="submit" name="submit" value="Check results">
 				
 			</form>
 		</li>
@@ -42,25 +42,28 @@
 	{{ $error }}
 @endforeach
 
-<table border="1">
+<table class="table table-striped" border="1">
 	<tr>
-		<td>
+		<td scope="col">
 			Competition
 		</td>
-		<td>
+		<td scope="col">
 			Participant
 		</td>
-		<td>
+		<td scope="col">
 			Arbiter
 		</td>
-		<td>
+		<td scope="col">
 			Criterion 1
 		</td>
-		<td>
+		<td scope="col">
 			Criterion 2
 		</td>
-		<td>
+		<td scope="col">
 			Criterion 3
+		</td>
+		<td scope="col">
+			Anulation
 		</td>
 	</tr>
 @foreach( $evaluations as $participant )
@@ -89,7 +92,7 @@
 			<form action="{{route('evaluations.update', $participant->id)}}" method="POST">
 				{{ csrf_field() }}
 				{{ method_field('PATCH') }}
-			<input type="submit" name="submit" value="Anulate">
+			<input class="btn btn-warning btn-lg active" role="button" aria-pressed="true" type="submit" name="submit" value="Anulate">
 			</form>
 		</td>
 		@endif

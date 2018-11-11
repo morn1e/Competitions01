@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Competition database</h1>
-    <nav>
+    <nav class="navbar navbar-inverse">
         <ul>
             <li>
                 <a href=" {{ route('competitions.index') }} ">

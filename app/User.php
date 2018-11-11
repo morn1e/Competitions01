@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Laravel;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -28,21 +28,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function profile(){
-        return $this->hasOne('App\Profile');
+        return $this->hasOne('Laravel\Profile');
     }
     public function role(){
-        return $this->hasOne('App\Role');
+        return $this->hasOne('Laravel\Role');
     }
     public function competition(){
-        return $this->hasOne('App\Competitions_participant');
+        return $this->hasOne('Laravel\Competitions_participant');
     }
     public function evaluation(){
-        return $this->hasMany('App\Evaluation');
+        return $this->hasMany('Laravel\Evaluation');
     }
     // public function evaluation_participant(){
-    //     return $this->hasMany('App\Evaluation', 'participant_id', 'id');
+    //     return $this->hasMany('Laravel\Evaluation', 'participant_id', 'id');
     // }
     // public function evaluation_arbiter(){
-    //     return $this->hasMany('App\Evaluation', 'arbiter_id', 'id' );
+    //     return $this->hasMany('Laravel\Evaluation', 'arbiter_id', 'id' );
     // }
 }
